@@ -52,10 +52,11 @@ public:
             street = "Aladhaeih Street";
             break;
         case 4:
-            street = "Other";
+            street = "unknown";
             break;
+
         default:
-            street = "Unknown";
+            street = "unknown";
             break;
         }
     };
@@ -142,10 +143,11 @@ int main()
     bussiness_type get_func1;
     get_func1.read_business_type(b1, m); // استدعاء دالة قراءة نوع النشاط التجاري
 
-    int choice;
+   int choice;
+do{
+    
     cout <<"enter number (1) for enter the data\t enter number (2) for display the data"<<endl;
     cin>>choice;
-do{
         switch(choice){
             case 1 :
     get_func.read_licenss(l1, n); // استدعاء الدوال من الكلاس
@@ -154,6 +156,7 @@ do{
     get_func.display_licenss(l1, n, b1, m);
     break;
         };
+        cin.ignore();
 }while (choice<2);
 
     return 0;
