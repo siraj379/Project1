@@ -13,9 +13,9 @@ public:
         for (int i = 0; i < m; i++)
         {
             cin.ignore();
-            cout << "enter the business type name\n";
+            cout << "enter the business type name :"<<i+1<<endl;
             getline(cin, t[i].name);
-            cout << "enter the business type num\n";
+            cout << "enter the number for represent this business type  :"<<i+1<<endl;
             cin >> t[i].type;
         }
     };
@@ -61,7 +61,7 @@ public:
     };
 };
 
-class commercail_licenss // الكلاس الاساسي
+class business_licenss // الكلاس الاساسي
 
 {
 public:
@@ -72,7 +72,7 @@ public:
     string date;
     string exoeration_date;
 
-    void read_licenss(commercail_licenss l1[], int n)
+    void read_licenss(business_licenss l1[], int n)
     { // دالة القرأة
         for (int i = 0; i < n; i++)
         {
@@ -100,7 +100,7 @@ public:
         }
     }
 
-    void display_licenss(commercail_licenss l1[], int n, bussiness_type b1[], int m)
+    void display_licenss(business_licenss l1[], int n, bussiness_type b1[], int m)
     { // دالة الطباعة
         for (int i = 0; i < n; i++)
         {
@@ -131,19 +131,30 @@ int main()
 
     do
     {
-        cout << "Enter the number of locaions" << endl;
+        cout << "Enter the number of business type you need in this system" << endl;
         cin >> m;
     } while (m < 0);
 
-    commercail_licenss l1[n]; // مصفوفة من الكلاس
-    commercail_licenss get_func;
+    business_licenss l1[n]; // مصفوفة من الكلاس
+    business_licenss get_func;
 
     bussiness_type b1[m]; // مصفوفة من كلاس نوع النشاط التجاري
     bussiness_type get_func1;
     get_func1.read_business_type(b1, m); // استدعاء دالة قراءة نوع النشاط التجاري
 
+    int choice;
+    cout <<"enter number (1) for enter the data\t enter number (2) for display the data"<<endl;
+    cin>>choice;
+do{
+        switch(choice){
+            case 1 :
     get_func.read_licenss(l1, n); // استدعاء الدوال من الكلاس
+    break;
+            case 2 :
     get_func.display_licenss(l1, n, b1, m);
+    break;
+        };
+}while (choice<2);
 
     return 0;
 }
