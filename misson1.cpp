@@ -62,6 +62,34 @@ public:
     };
 };
 
+class BusinessType
+{
+public:
+    string type;
+
+    void read_business_type(int choice_type)
+    {
+        switch (choice_type)
+        {
+        case 1:
+            type = "Groceries";
+            break;
+        case 2:
+            type = "Clothing";
+            break;
+        case 3:
+            type = "Hardware";
+            break;
+        case 4:
+            type = "Electronics";
+            break;
+        case 5:
+            type = "Other";
+            break;
+        }
+    }
+};
+
 class business_licenss // الكلاس الاساسي
 
 {
@@ -83,20 +111,24 @@ public:
             getline(cin, l1[i].id);
             cout << "enter the name\n";
             getline(cin, l1[i].name);
+
             cout << "Select Business Adders:" << endl;
             cout << "1. Tripoli Street" << endl;
             cout << "2. Benghazi Street" << endl;
             cout << "3. Aladhaeih Street" << endl;
             cout << "4. Other" << endl;
             cin >> l1[i].address;
+
+
             cout << "enter the business type\n";
             cin >> l1[i].business_type;
 
             cin.ignore();
 
-            cout << "enter the date\n";
+            cout << "enter the date (DD-MM-YYYY)";
             getline(cin, l1[i].date);
-            cout << "enter the exoeration date\n";
+
+            cout << "enter the exoeration date (DD-MM-YYYY)";
             getline(cin, l1[i].exoeration_date);
         }
     }
@@ -108,13 +140,15 @@ public:
             Address address_obj;
             address_obj.read_address(l1[i].address);
             bussiness_type get_func1;
+            bussiness_type bt;
+
 
             cout << "Business License Details:" << endl;
             cout << "ID: " << l1[i].id << endl;
             cout << "Name: " << l1[i].name << endl;
             cout << "Address: " << address_obj.street << endl;
             cout << "Business Type: ";
-            cout << get_func1.get_business_type_name(l1->business_type, b1, m) << endl;
+            cout << bt.get_business_type_name(l1[i].business_type, b1, m);
             cout << "Date: " << l1[i].date << endl;
             cout << "Expiration Date: " << l1[i].exoeration_date << endl;
         }
@@ -145,7 +179,7 @@ int main()
 
    int choice;
 do{
-    
+
     cout <<"enter number (1) for enter the data\t enter number (2) for display the data"<<endl;
     cin>>choice;
         switch(choice){
